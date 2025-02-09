@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Learning Timeline - A Journey Through Knowledge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #3e3535;
             margin: 0;
             padding: 20px;
@@ -22,8 +23,9 @@
         .timeline-item {
             background: white;
             border-radius: 6px;
-            padding: 10px;
+            padding: 15px;
             margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: relative;
         }
 
@@ -56,6 +58,47 @@
                 /* Smaller size for mobile */
             }
         }
+
+        .timeline-item p {
+            line-height: 1.6; /* Increase line height for readability */
+            text-align: justify; /* Justify text for a cleaner look */
+            margin: 10px 0; /* Add margin to paragraphs for spacing */
+            color: #555; /* Set a softer text color for better aesthetics */
+        }
+
+        .timeline-item ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .timeline-item li {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .timeline-item h3 {
+            color: #007bff;
+            margin: 15px 0 10px 0;
+        }
+
+        .timeline-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .timeline-item a:hover {
+            text-decoration: underline;
+        }
+
+        .emphasis {
+            color: #ffcc00; /* Bright color for emphasis */
+            font-weight: bold; /* Make the text bold */
+            background-color: rgba(0, 0, 0, 0.1); /* Light background for contrast */
+            padding: 5px; /* Add some padding */
+            border-radius: 4px; /* Rounded corners */
+            display: inline-block; /* Make it inline-block for better layout */
+            margin-top: 10px; /* Add some margin on top */
+        }
     </style>
 </head>
 
@@ -80,48 +123,90 @@
         </div>
         <div class="timeline-item">
             <h2>High school</h2>
-            <p>For devlope Minecraft or Tower of Saviors plugins to join Kinmen Higher Vocational School
-                Information Technology department as Student,But my teacher is perfect about IOT..., And i need
-                to take care about my score for my graduate, so i learning IOT field, Created an automatic vegetable
-                watering system when I graduated
-                - skill learn: C, Python Fundemental, Arduino
-                - Project: Automatic irrigation system
+            <p>
+                For devlope Minecraft or Tower of Saviors plugins to join Kinmen Higher Vocational School
+                Information Technology department as Student. But my teacher is perfect about IOT, and I need
+                to take care about my score for my graduate, so I learning IOT field. Created an automatic vegetable
+                watering system when I graduated.
             </p>
+            <ul>
+                <li>Skills learned: C, Python Fundamental, Arduino</li>
+                <li>Project: Automatic irrigation system</li>
+            </ul>
         </div>
         <!-- Add more timeline items as needed -->
         <div class="timeline-item">
             <h2>University</h2>
             <p>
-                Quemoy University Computer Science and Information Enginering
-                For continue learn about make game plugins but, for get greate score in School.
+                Quemoy University Computer Science and Information Engineering.
+                For continue learn about make game plugins but, for get great score in School,
                 I give up this plan.
-                - Skill Learn: C++, C, Python, R, Artificial intelligence, Tomcat, AWS, Ansible
-                - Project: Crypto Currency Trading System(But i don't like Trading)
-                - greedy snake
-                - E-Commerce Web Scraping
             </p>
+            <ul>
+                <li>Skills learned: C++, C, Python, R, Artificial Intelligence, Tomcat, AWS, Ansible</li>
+                <li>Projects:</li>
+                <ul>
+                    <li>Crypto Currency Trading System (But I don't like Trading)</li>
+                    <li>Greedy Snake</li>
+                    <li>E-Commerce Web Scraping</li>
+                </ul>
+            </ul>
         </div>
 
         <div class="timeline-item">
             <h2>Work Experience</h2>
             <p>
-                in Senior year of college, Join KYEC internship plan, after that i work another four month (become
-                full-time
-                employee)
-                - Skill Learn: Java, Servlet, VB.Net(For Test Machine), Regular Expression
-
-                all in all this is a good company, teach me a lot of, every one hard work for him's dream.
+                In Senior year of college, joined KYEC internship plan, after that I worked another four months (became
+                full-time employee)
+            </p>
+            <ul>
+                <li>Skills learned: Java, Servlet, VB.Net (For Test Machine), Regular Expression</li>
+            </ul>
+            <p>
+                All in all this is a good company, taught me a lot, everyone works hard for their dreams.
             </p>
         </div>
-
 
         <div class="timeline-item">
             <h2>Self-Study Experience</h2>
-            <p>
-                - React, Next.js, Vue.js, Nuxt, Express.js, Flask, Linux, AWS S3, AWS lambda
-                - Github CI/CD(action), Selenum
-            </p>
+            <ul>
+                <li>Frontend: React, Next.js, Vue.js, Nuxt</li>
+                <li>Backend: Express.js, Flask</li>
+                <li>Cloud & DevOps: Linux, AWS S3, AWS Lambda, Github CI/CD (Actions), Selenium</li>
+            </ul>
         </div>
+
+        <div class="timeline-item">
+            <h2>Project Experience</h2>
+            <h3>Video Silence Cut</h3>
+            <p>Tech stack:</p>
+            <ul>
+                <li>React</li>
+                <li>Next</li>
+                <li>Python</li>
+                <li>FFmpeg</li>
+                <li>Docker</li>
+            </ul>
+            <p>GitHub: <a href="https://github.com/Feipian/VideoSilenceCut" target="_blank">VideoSilenceCut</a></p>
+
+            <h3>ToDoWithMe</h3>
+            <p>Tech stack:</p>
+            <ul>
+                <li>TypeScript</li>
+                <li>React Native</li>
+                <li>Expo</li>
+                <li>Firebase Auth</li>
+            </ul>
+            <p>GitHub: <a href="https://github.com/Feipian/Todo" target="_blank">Todo</a></p>
+            <p class="emphasis">This project is currently being uploaded to the Play Store.</p>
+
+
+            <h3>AWS Notes</h3>
+            <p>University DevOps course notes:</p>
+            <p>GitHub: <a href="https://github.com/Feipian/Note-AWS/tree/main/aws" target="_blank">AWS Notes</a></p>
+        </div>
+    </div>
+
     </div>
 
 
