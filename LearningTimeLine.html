@@ -16,17 +16,23 @@
 
         .timeline {
             position: relative;
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
+            padding: 20px;
         }
 
         .timeline-item {
             background: white;
-            border-radius: 6px;
-            padding: 15px;
-            margin: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
             position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-2px);
         }
 
         .timeline-item::before {
@@ -67,18 +73,34 @@
         }
 
         .timeline-item ul {
+            margin: 15px 0;
+            padding-left: 25px;
+            list-style-type: none;
+        }
+
+        .timeline-item ul li {
             margin: 10px 0;
+            position: relative;
             padding-left: 20px;
         }
 
-        .timeline-item li {
-            margin: 5px 0;
-            color: #555;
+        .timeline-item ul li::before {
+            content: "•";
+            color: #007bff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .timeline-item ul ul {
+            margin: 5px 0 5px 20px;
         }
 
         .timeline-item h3 {
             color: #007bff;
-            margin: 15px 0 10px 0;
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
         }
 
         .timeline-item a {
@@ -98,6 +120,85 @@
             border-radius: 4px; /* Rounded corners */
             display: inline-block; /* Make it inline-block for better layout */
             margin-top: 10px; /* Add some margin on top */
+        }
+
+        .timeline-item strong {
+            color: #007bff;
+            margin-right: 5px;
+        }
+
+        .timeline-item a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-item a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Social media themed styles */
+        .social-links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-link {
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            text-decoration: none !important;
+        }
+
+        .linkedin {
+            background-color: #0077b5;
+            color: white !important;
+        }
+
+        .linkedin:hover {
+            background-color: #005582;
+            color: white !important;
+        }
+
+        .job104 {
+            background-color: #ff7800;
+            color: white !important;
+        }
+
+        .job104:hover {
+            background-color: #e66d00;
+            color: white !important;
+        }
+
+        .youtube {
+            background-color: #ff0000;
+            color: white !important;
+        }
+
+        .youtube:hover {
+            background-color: #cc0000;
+            color: white !important;
+        }
+
+        /* Responsive design improvements */
+        @media (max-width: 850px) {
+            .timeline {
+                max-width: 95%;
+                padding: 10px;
+            }
+
+            .timeline-item {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -205,11 +306,39 @@
             <p>University DevOps course notes:</p>
             <p>GitHub: <a href="https://github.com/Feipian/Note-AWS/tree/main/aws" target="_blank">AWS Notes</a></p>
         </div>
+
+        <div class="timeline-item">
+            <h2>Personal Information</h2>
+            <div class="social-links-container">
+                <div>
+                    <strong>LinkedIn:</strong>
+                    <a href="https://www.linkedin.com/in/%E9%B4%BB%E9%8A%98-%E7%8E%8B-773bb7287" 
+                       target="_blank"
+                       class="social-link linkedin">
+                        王鴻銘的 LinkedIn
+                    </a>
+                </div>
+                <div>
+                    <strong>104 Profile:</strong>
+                    <a href="https://pda.104.com.tw/profile/share/3DxTEyj8ut2nx2j4ZyA7rgIMmkSPsUnv" 
+                       target="_blank"
+                       class="social-link job104">
+                        104 履歷
+                    </a>
+                </div>
+                <div>
+                    <strong>YouTube Channel:</strong>
+                    <a href="https://youtube.com/@zhiziknowhow" 
+                       target="_blank"
+                       class="social-link youtube">
+                        :)
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     </div>
-
-
 
 </body>
 
