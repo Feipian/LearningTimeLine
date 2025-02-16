@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning Timeline - A Journey Through Knowledge</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #3e3535;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .timeline-item {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .timeline-item::before {
+            /*create a circle before item*/
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            background: #007bff;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            /* Adjust size for larger screens */
+            text-align: center;
+            /* Center the title */
+            margin: 20px 0;
+            /* Add some margin */
+            color: #c46352;
+            /* Set a dark gray color for better contrast */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+                /* Smaller size for mobile */
+            }
+        }
+
+        .timeline-item p {
+            line-height: 1.6; /* Increase line height for readability */
+            text-align: justify; /* Justify text for a cleaner look */
+            margin: 10px 0; /* Add margin to paragraphs for spacing */
+            color: #555; /* Set a softer text color for better aesthetics */
+        }
+
+        .timeline-item ul {
+            margin: 15px 0;
+            padding-left: 25px;
+            list-style-type: none;
+        }
+
+        .timeline-item ul li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline-item ul li::before {
+            content: "•";
+            color: #007bff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .timeline-item ul ul {
+            margin: 5px 0 5px 20px;
+        }
+
+        .timeline-item h3 {
+            color: #007bff;
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .timeline-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .timeline-item a:hover {
+            text-decoration: underline;
+        }
+
+        .emphasis {
+            color: #ffcc00; /* Bright color for emphasis */
+            font-weight: bold; /* Make the text bold */
+            background-color: rgba(0, 0, 0, 0.1); /* Light background for contrast */
+            padding: 5px; /* Add some padding */
+            border-radius: 4px; /* Rounded corners */
+            display: inline-block; /* Make it inline-block for better layout */
+            margin-top: 10px; /* Add some margin on top */
+        }
+
+        .timeline-item strong {
+            color: #007bff;
+            margin-right: 5px;
+        }
+
+        .timeline-item a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-item a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        /* Social media themed styles */
+        .social-links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-link {
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            text-decoration: none !important;
+        }
+
+        .linkedin {
+            background-color: #0077b5;
+            color: white !important;
+        }
+
+        .linkedin:hover {
+            background-color: #005582;
+            color: white !important;
+        }
+
+        .job104 {
+            background-color: #ff7800;
+            color: white !important;
+        }
+
+        .job104:hover {
+            background-color: #e66d00;
+            color: white !important;
+        }
+
+        .youtube {
+            background-color: #ff0000;
+            color: white !important;
+        }
+
+        .youtube:hover {
+            background-color: #cc0000;
+            color: white !important;
+        }
+
+        /* Responsive design improvements */
+        @media (max-width: 850px) {
+            .timeline {
+                max-width: 95%;
+                padding: 10px;
+            }
+
+            .timeline-item {
+                padding: 20px;
+            }
+        }
+
+        .typing {
+            border-right: 2px solid #007bff; /* Cursor effect */
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide the overflow */
+            animation: typing 5s steps(30, end), blink-caret 2s step-end infinite; /* Typing and blinking effect */
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            90% { border-color: #567596; }
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .nav-link:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-menu">
+        <a href="/video-info" class="nav-link">Video Info</a>
+    </div>
+
+    <h1 class="typing">My Learning Timeline</h1>
+    <div class="timeline">
+        <div class="timeline-item">
+            <h2>Kindergarten</h2>
+            <p>A very wonderful period, carefree, play with other kids every day.</p>
+        </div>
+        <div class="timeline-item">
+            <h2>Primary school</h2>
+            <p>
+                I was in the fourth or fifth grade when I
+                first came across the game Minecraft.
+                At that time, I thought plugins and modules were very novel.
+                Why can the game have so many changes just by downloading other
+                people's Jar files? Maybe this is the reason why I I have a strong
+                interest in coding and gradually develop towards coding
+            </p>
+        </div>
+        <div class="timeline-item">
+            <h2>High school</h2>
+            <p>
+                For devlope Minecraft or Tower of Saviors plugins to join Kinmen Higher Vocational School
+                Information Technology department as Student. But my teacher is perfect about IOT, and I need
+                to take care about my score for my graduate, so I learning IOT field. Created an automatic vegetable
+                watering system when I graduated.
+            </p>
+            <ul>
+                <li>Skills learned: C, Python Fundamental, Arduino</li>
+                <li>Project: Automatic irrigation system</li>
+            </ul>
+        </div>
+        <!-- Add more timeline items as needed -->
+        <div class="timeline-item">
+            <h2>University</h2>
+            <p>
+                Quemoy University Computer Science and Information Engineering.
+                For continue learn about make game plugins but, for get great score in School,
+                I give up this plan.
+            </p>
+            <ul>
+                <li>Skills learned: C++, C, Python, R, Artificial Intelligence, Tomcat, AWS, Ansible</li>
+                <li>Projects:</li>
+                <ul>
+                    <li>Crypto Currency Trading System (But I don't like Trading)</li>
+                    <li>Greedy Snake</li>
+                    <li>E-Commerce Web Scraping</li>
+                </ul>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h2>Work Experience</h2>
+            <p>
+                In Senior year of college, joined KYEC internship plan, after that I worked another four months (became
+                full-time employee)
+            </p>
+            <ul>
+                <li>Skills learned: Java, Servlet, VB.Net (For Test Machine), Regular Expression</li>
+            </ul>
+            <p>
+                All in all this is a good company, taught me a lot, everyone works hard for their dreams.
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <h2>Self-Study Experience</h2>
+            <ul>
+                <li>Frontend: React, Next.js, Vue.js, Nuxt</li>
+                <li>Backend: Express.js, Flask</li>
+                <li>Cloud & DevOps: Linux, AWS S3, AWS Lambda, Github CI/CD (Actions), Selenium</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <h2>Project Experience</h2>
+            <h3>Video Silence Cut</h3>
+            <p>Tech stack:</p>
+            <ul>
+                <li>React</li>
+                <li>Next</li>
+                <li>Python</li>
+                <li>FFmpeg</li>
+                <li>Docker</li>
+            </ul>
+            <p>GitHub: <a href="https://github.com/Feipian/VideoSilenceCut" target="_blank">VideoSilenceCut</a></p>
+
+            <h3>ToDoWithMe</h3>
+            <p>Tech stack:</p>
+            <ul>
+                <li>TypeScript</li>
+                <li>React Native</li>
+                <li>Expo</li>
+                <li>Firebase Auth</li>
+            </ul>
+            <p>GitHub: <a href="https://github.com/Feipian/Todo" target="_blank">Todo</a></p>
+            <p class="emphasis">This project is currently being uploaded to the Play Store.</p>
+
+
+            <h3>AWS Notes</h3>
+            <p>University DevOps course notes:</p>
+            <p>GitHub: <a href="https://github.com/Feipian/Note-AWS/tree/main/aws" target="_blank">AWS Notes</a></p>
+        </div>
+
+        <div class="timeline-item">
+            <h2>Personal Information</h2>
+            <div class="social-links-container">
+                <div>
+                    <strong>LinkedIn:</strong>
+                    <a href="https://www.linkedin.com/in/%E9%B4%BB%E9%8A%98-%E7%8E%8B-773bb7287" 
+                       target="_blank"
+                       class="social-link linkedin">
+                        王鴻銘的 LinkedIn
+                    </a>
+                </div>
+                <div>
+                    <strong>104 Profile:</strong>
+                    <a href="https://pda.104.com.tw/profile/share/3DxTEyj8ut2nx2j4ZyA7rgIMmkSPsUnv" 
+                       target="_blank"
+                       class="social-link job104">
+                        104 履歷
+                    </a>
+                </div>
+                <div>
+                    <strong>YouTube Channel:</strong>
+                    <a href="https://youtube.com/@zhiziknowhow" 
+                       target="_blank"
+                       class="social-link youtube">
+                        :)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+// my-timeline/src/styles/MarkdownStyles.module.scss
+
+.markdownContent {
+    h1 {
+        color: #007bff; // Custom color for h1
+        font-size: 2em; // Custom font size
+    }
+
+    h2 {
+        color: #0056b3; // Custom color for h2
+    }
+
+    p {
+        line-height: 1.6; // Increase line height for readability
+        color: #333; // Custom text color
+    }
+
+    a {
+        color: #ff0000; // Custom link color
+        text-decoration: none; // Remove underline
+        transition: color 0.3s ease, transform 0.3s ease; // Add transition for color and transform
+
+        &:hover {
+            text-decoration: underline; // Underline on hover
+            color: #ff4d00; // Change color on hover
+            transform: scale(1.1); // Scale up the link slightly
+        }
+    }
+
+    // Add more styles as needed
+}

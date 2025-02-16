@@ -1,0 +1,23 @@
+/* Copy all the video info-related styles from your current CSS */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.video-link {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* ... rest of your VideoInfo styles ... */ 

@@ -1,0 +1,234 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #3e3535;
+    margin: 0;
+    padding: 20px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.timelineItem {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.timelineItem:hover {
+    transform: translateY(-2px);
+}
+
+.timelineItem::before {
+    /*create a circle before item*/
+    content: '';
+    position: absolute;
+    left: -15px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: #007bff;
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: 2.5em;
+    /* Adjust size for larger screens */
+    text-align: center;
+    /* Center the title */
+    margin: 20px 0;
+    /* Add some margin */
+    color: #c46352;
+    /* Set a dark gray color for better contrast */
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+        /* Smaller size for mobile */
+    }
+}
+
+.timelineItem p {
+    line-height: 1.6; /* Increase line height for readability */
+    text-align: justify; /* Justify text for a cleaner look */
+    margin: 10px 0; /* Add margin to paragraphs for spacing */
+    color: #555; /* Set a softer text color for better aesthetics */
+}
+
+.timelineItem ul {
+    margin: 15px 0;
+    padding-left: 25px;
+    list-style-type: none;
+}
+
+.timelineItem ul li {
+    margin: 10px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.timelineItem ul li::before {
+    content: "•";
+    color: #007bff;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.timelineItem ul ul {
+    margin: 5px 0 5px 20px;
+}
+
+.timelineItem h3 {
+    color: #007bff;
+    margin: 25px 0 15px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #eee;
+}
+
+.timelineItem a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.timelineItem a:hover {
+    text-decoration: underline;
+}
+
+.emphasis {
+    color: #ffcc00; /* Bright color for emphasis */
+    font-weight: bold; /* Make the text bold */
+    background-color: rgba(0, 0, 0, 0.1); /* Light background for contrast */
+    padding: 5px; /* Add some padding */
+    border-radius: 4px; /* Rounded corners */
+    display: inline-block; /* Make it inline-block for better layout */
+    margin-top: 10px; /* Add some margin on top */
+}
+
+.timelineItem strong {
+    color: #007bff;
+    margin-right: 5px;
+}
+
+.timelineItem a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.timelineItem a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Social media themed styles */
+.socialLinksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.socialLink {
+    padding: 10px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    min-width: 150px;
+    text-align: center;
+}
+
+.socialLink:hover {
+    transform: translateY(-2px);
+    text-decoration: none !important;
+}
+
+.linkedin {
+    background-color: #0077b5;
+    color: white !important;
+}
+
+.linkedin:hover {
+    background-color: #005582;
+    color: white !important;
+}
+
+.job104 {
+    background-color: #ff7800;
+    color: white !important;
+}
+
+.job104:hover {
+    background-color: #e66d00;
+    color: white !important;
+}
+
+.youtube {
+    background-color: #ff0000;
+    color: white !important;
+}
+
+.youtube:hover {
+    background-color: #cc0000;
+    color: white !important;
+}
+
+/* Responsive design improvements */
+@media (max-width: 850px) {
+    .timeline {
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    .timeline-item {
+        padding: 20px;
+    }
+}
+
+.typing {
+    border-right: 2px solid #007bff; /* Cursor effect */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide the overflow */
+    animation: typing 5s steps(30, end), blink-caret 2s step-end infinite; /* Typing and blinking effect */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    90% { border-color: #567596; }
+}
+
+.navMenu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.navLink {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navLink:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
