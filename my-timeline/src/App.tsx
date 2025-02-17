@@ -8,7 +8,7 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Timeline />} />
-        <Route path="/video-info" element={<VideoInfo />} />
+        <Route path="/video-info" element={<VideoInfo fileName="article1.md"/>} />
       </Routes>
     </Router>
   );

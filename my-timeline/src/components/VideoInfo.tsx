@@ -4,29 +4,34 @@ import ReactMarkdown from 'react-markdown';
 import styles from '../styles/VideoInfo.module.css';
 import markdownStyles from '../styles/MarkdownStyles.module.scss';
 import contentPath from '../articles/article1.md'; // Correct path to the Markdown file
-import { text } from 'stream/consumers';
 
 
+interface VideoInfoProps {
+    fileName: string;
+}
 
-const VideoInfo: React.FC = () => {
+const VideoInfo: React.FC<VideoInfoProps> = ({ fileName }) => {
 
     const [content, setContent] = useState<null | string>(null);
 
     useEffect(() => {
-        fetch(contentPath)
-            .then((response) => {
+        const fetchArticle = async () => {
+            console.log(fileName); // Log the fileName for debugging
+            try {
+                const response = await fetch(`articles/${fileName}`); // Fetch from the public directory
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                return response.text();
-            })
-            .then((text) => {
-                setContent(text); // Set the fetched Markdown content
-            })
-            .catch((error) => {
-                console.error('Error fetching the Markdown file:', error);
-            });
-    }, []);
+                const text = await response.text(); // Get the text content
+                setContent(text); // Set the content in state
+            } catch (error) {
+                console.error('Error fetching the Markdown file:', error); // Handle any errors
+            }
+        };
+
+        fetchArticle(); // Call the async function
+    }, [fileName]); // Dependency array includes fileName
+
 
     return (
         <div className={styles.container}>
