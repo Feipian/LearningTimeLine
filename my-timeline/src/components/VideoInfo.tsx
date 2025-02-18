@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import styles from '../styles/VideoInfo.module.css';
 import markdownStyles from '../styles/MarkdownStyles.module.scss';
-import contentPath from '../articles/article1.md'; // Correct path to the Markdown file
 
 
 interface VideoInfoProps {
