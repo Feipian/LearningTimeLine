@@ -26,6 +26,7 @@ const VideoInfo: React.FC<VideoInfoProps> = ({ fileName }) => {
                 setContent(text); // Set the content in state
             } catch (error) {
                 console.error('Error fetching the Markdown file:', error); // Handle any errors
+                setContent('Error fetching the Markdown file'); // Set an error message in state
             }
         };
 
