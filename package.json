@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "raw-loader": "^4.0.2"
   }
 }
