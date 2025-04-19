@@ -2,44 +2,41 @@
 import React, { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import styles from '../styles/VideoInfo.module.css';
-import markdownStyles from '../styles/MarkdownStyles.module.scss';
+import { useNavigate, useParams } from 'react-router-dom';
 
-
-interface VideoInfoProps {
-    fileName: string;
-}
-
-const VideoInfo: React.FC<VideoInfoProps> = ({ fileName }) => {
-
-    const [content, setContent] = useState<null | string>(null);
+const VideoInfo: React.FC = () => {
+    const [content, setContent] = useState<string | null>(null);
+    const navigate = useNavigate();
+    const { articleId } = useParams();
 
     useEffect(() => {
         const fetchArticle = async () => {
-            console.log(fileName); // Log the fileName for debugging
             try {
-                const response = await fetch(`articles/${fileName}`); // Fetch from the public directory
+                const response = await fetch(`/articles/${articleId}.md`);
                 if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                    throw new Error('Article not found');
                 }
-                const text = await response.text(); // Get the text content
-                setContent(text); // Set the content in state
+                const text = await response.text();
+                setContent(text);
             } catch (error) {
-                console.error('Error fetching the Markdown file:', error); // Handle any errors
+                console.error('Error fetching article:', error);
+                setContent('# Article Not Found\n\nSorry, the requested article could not be found.');
             }
         };
 
-        fetchArticle(); // Call the async function
-    }, [fileName]); // Dependency array includes fileName
-
+        fetchArticle();
+    }, [articleId]);
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Article Title</h1> {/* Optional title for the article */}
-            <div className={markdownStyles.markdownContent}>
+            <button onClick={() => navigate(-1)} className={styles.backButton}>
+                Go Back
+            </button>
+            <div className={styles.markdownContent}>
                 {content ? (
                     <ReactMarkdown>{content}</ReactMarkdown>
                 ) : (
-                    <p>Loading ...</p>
+                    <p>Loading...</p>
                 )}
             </div>
         </div>
