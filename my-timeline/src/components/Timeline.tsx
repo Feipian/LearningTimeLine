@@ -1,26 +1,18 @@
 // my-timeline/src/components/LearningTimeLine.tsx
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../styles/Timeline.module.css'
 import { Link } from 'react-router-dom';
-import translations from '../localization';
+
 import { QRCodeSVG } from 'qrcode.react';
 
 const LearningTimeLine: React.FC = () => {
 
-    const [language, setLanguage] = useState<'en' | 'zh'>('en'); // Default to English
-
-    const toggleLanguage = () => {
-        setLanguage((prev) => (prev === 'en' ? 'zh' : 'en'));
-    };
 
     return (
         <div>
-
-            <button onClick={toggleLanguage}>
-                {language === 'en' ? 'Switch to Chinese' : '切換到英語'}
-            </button>
             <div className={styles.navMenu}>
-                <Link to="/video-info" className={styles.navLink}>{translations[language].videoInfo}</Link>
+                <Link translate='no' to="/video-info" className={styles.navLink}>{ "VideoInfo" }</Link>
+                <Link to="/channel" className={styles.navLink}>My Channel</Link>
             </div>
 
             <h1 className="typing">My Learning Timeline</h1>
@@ -49,6 +41,8 @@ const LearningTimeLine: React.FC = () => {
                     <ul>
                         <li>Skills learned: C, Python Fundamental, Arduino</li>
                         <li>Project: Automatic irrigation system</li>
+                        <li translate='no'>Passed Class B in Hardware Maintance</li>
+                        <li translate='no'>Passed Class C in Network Construction</li>
                     </ul>
                 </div>
                 <div className={styles.timelineItem}>
@@ -136,9 +130,12 @@ const LearningTimeLine: React.FC = () => {
                     </p>
                     <p className={styles.emphasis}>This project is currently being uploaded to the Play Store.</p>
 
-                    <h3>AWS Notes</h3>
+                    <h3 translate='no'>AWS Notes</h3>
                     <p>University DevOps course notes:</p>
-                    <p>GitHub: <a href="https://github.com/Feipian/Note-AWS/tree/main/aws" target="_blank" rel="noopener noreferrer">AWS Notes</a></p>
+                    <p>GitHub: 
+                    <QRCodeSVG value={"https://github.com/Feipian/Note-AWS/tree/main/aws" }size={64} style={{ marginLeft: '10px' }}></QRCodeSVG>
+
+                    </p>
                 </div>
                 <div className={styles.timelineItem}>
                     <h2>Personal Information</h2>
@@ -156,14 +153,14 @@ const LearningTimeLine: React.FC = () => {
                         </div>
                         <div>
                             <strong>104 Profile:</strong>
-                            <a href="https://pda.104.com.tw/profile/share/3DxTEyj8ut2nx2j4ZyA7rgIMmkSPsUnv"
+                            <a href="https://pda.104.com.tw/profile/share/3DOxUPwtHkI2iPUbz9TP7GUXeE4j1tWb"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`${styles.socialLink} ${styles.job104}`}>
                                 104 履歷
                             </a>
 
-                            <QRCodeSVG value={"https://pda.104.com.tw/profile/share/3DxTEyj8ut2nx2j4ZyA7rgIMmkSPsUnv" }size={64} style={{ marginLeft: '10px' }}></QRCodeSVG>
+                            <QRCodeSVG value={"https://pda.104.com.tw/profile/share/3DOxUPwtHkI2iPUbz9TP7GUXeE4j1tWb"}size={64} style={{ marginLeft: '10px' }}></QRCodeSVG>
 
                         </div>
                         <div>
