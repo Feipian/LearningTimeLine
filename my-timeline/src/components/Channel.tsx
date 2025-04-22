@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/Channel.module.css';
+import {Adsense} from '@ctrl/react-adsense';
 
 const Channel: React.FC = () => {
     return (
@@ -21,20 +22,10 @@ const Channel: React.FC = () => {
 
                 {/* Google AdSense */}
                 <div className={styles.adSection}>
-                    <script async 
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR-CLIENT-ID"
-                        crossOrigin="anonymous">
-                    </script>
-                    <ins className="adsbygoogle"
-                        style={{ display: 'block' }}
-                        data-ad-client="YOUR-CLIENT-ID"
-                        data-ad-slot="YOUR-AD-SLOT"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true">
-                    </ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                    <Adsense
+                        client="ca-pub-1245796678858418"
+                        slot="7259870550"
+                    />
                 </div>
             </div>
         </div>
