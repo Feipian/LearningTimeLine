@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from '../styles/Channel.module.css';
-import AdSenseAd from './AdSenseAd';
+import AdsComponent from './AdSenseAd';
+import { Adsense } from '@ctrl/react-adsense';
 
 const Channel: React.FC = () => {
     return (
@@ -21,12 +22,8 @@ const Channel: React.FC = () => {
                 </div>
 
                 {/* Google AdSense */}
-                <div className={styles.adSection}>
-                    <AdSenseAd
-                        client="ca-pub-1245796678858418"
-                        slot="9839242241"
-                    />
-                </div>
+                <AdsComponent dataAdSlot='9839242241' />
+
             </div>
         </div>
     );

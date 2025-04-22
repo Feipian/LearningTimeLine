@@ -1,52 +1,52 @@
 import React, { useEffect } from 'react';
 
+interface AdsProps {
+    dataAdSlot: string;
+}
+
 declare global {
     interface Window {
         adsbygoogle: any[];
     }
 }
 
-interface AdSenseAdProps {
-    client: string;
-    slot: string;
-    format?: string;
-    style?: React.CSSProperties;
-}
-
-const AdSenseAd: React.FC<AdSenseAdProps> = ({ 
-    client, 
-    slot, 
-    format = "auto",
-    style = { display: "block" }
-}) => {
+const AdsComponent: React.FC<AdsProps> = ({ dataAdSlot }) => {
     useEffect(() => {
         // Only load ads in production
         if (process.env.NODE_ENV === 'production') {
-            const script = document.createElement('script');
-            script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`;
-            script.async = true;
-            script.crossOrigin = "anonymous";
-            document.head.appendChild(script);
-
-            (window.adsbygoogle = window.adsbygoogle || []).push({});
+            try {
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+                console.error('AdSense error:', e);
+            }
         }
-    }, [client]);
+    }, []);
 
-    // Only render ad container in production
+    // Show placeholder in development
     if (process.env.NODE_ENV !== 'production') {
-        return <div style={{ ...style, backgroundColor: '#f0f0f0', textAlign: 'center' }}>Ad Space</div>;
+        return (
+            <div style={{ 
+                display: 'block', 
+                backgroundColor: '#f0f0f0', 
+                padding: '20px', 
+                textAlign: 'center',
+                minHeight: '250px',
+                border: '1px dashed #ccc'
+            }}>
+                Ad Space (Only visible in production)
+            </div>
+        );
     }
 
     return (
-        <ins
-            className="adsbygoogle"
-            style={style}
-            data-ad-client={client}
-            data-ad-slot={slot}
-            data-ad-format={format}
-            data-full-width-responsive="true"
-        />
+        <ins className="adsbygoogle"
+            style={{ display: "block" }}
+            data-ad-client="ca-pub-1245796678858418"
+            data-ad-slot={dataAdSlot}
+            data-ad-format="auto"
+            data-full-width-responsive="true">
+        </ins>
     );
 };
 
-export default AdSenseAd; 
+export default AdsComponent;
