@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from '../styles/Channel.module.css';
-import {Adsense} from '@ctrl/react-adsense';
+import AdSenseAd from './AdSenseAd';
 
 const Channel: React.FC = () => {
     return (
         <div className={styles.container}>
             <h1>知識 Know How</h1>
-            
+
             <div className={styles.channelSection}>
                 <div className={styles.channelInfo}>
-                    <a 
-                        href="https://youtube.com/@zhiziknowhow" 
-                        target="_blank" 
+                    <a
+                        href="https://youtube.com/@zhiziknowhow"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className={styles.channelLink}
                     >
@@ -22,9 +22,9 @@ const Channel: React.FC = () => {
 
                 {/* Google AdSense */}
                 <div className={styles.adSection}>
-                    <Adsense
+                    <AdSenseAd
                         client="ca-pub-1245796678858418"
-                        slot="7259870550"
+                        slot="9839242241"
                     />
                 </div>
             </div>
