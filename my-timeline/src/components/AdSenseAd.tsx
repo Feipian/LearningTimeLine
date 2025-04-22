@@ -1,28 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 interface AdsProps {
     dataAdSlot: string;
 }
 
-declare global {
-    interface Window {
-        adsbygoogle: any[];
-    }
-}
-
 const AdsComponent: React.FC<AdsProps> = ({ dataAdSlot }) => {
-    useEffect(() => {
-        // Only load ads in production
-        if (process.env.NODE_ENV === 'production') {
-            try {
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-                console.error('AdSense error:', e);
-            }
-        }
-    }, []);
-
-    // Show placeholder in development
     if (process.env.NODE_ENV !== 'production') {
         return (
             <div style={{ 

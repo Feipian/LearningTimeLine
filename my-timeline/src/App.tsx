@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Timeline from './components/Timeline';
 import VideoInfo from './components/VideoInfo';
 import Channel from './components/Channel';
+import AdSenseScript from './components/AdSenseScript';
 
 const App: React.FC = () => {
   return (
     <Router>
+      <AdSenseScript />
       <Routes>
         <Route path="/" element={<Timeline />} />
-        <Route path="/video-info/:articleId" element={<VideoInfo  />} />
+        <Route path="/video-info/:articleId" element={<VideoInfo />} />
         <Route path="/channel" element={<Channel />} />
       </Routes>
     </Router>
